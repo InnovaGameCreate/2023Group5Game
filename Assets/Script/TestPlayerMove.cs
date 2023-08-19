@@ -28,4 +28,11 @@ public class TestPlayerMove : MonoBehaviour
        if(Input.GetKey(KeyCode.S) && this.transform.position.z > -zRange)//Sを押したら かつ　オブジェクトのz座標が-zRange以上の値なら
        transform.Translate(new Vector3(0, 0, -MoveSpeed) * Time.deltaTime);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other. gameObject. CompareTag("Board"))
+        {
+           transform.position = new Vector3(0, 0, 0); 
+        }
+    }
 }
