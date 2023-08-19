@@ -7,6 +7,8 @@ public class TestPlayerMove : MonoBehaviour
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float xRange;
     [SerializeField] private float zRange;
+    [SerializeField] private GameObject AfterimagePrefab;
+    private GameObject Afterimage;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class TestPlayerMove : MonoBehaviour
     {
         if(other. gameObject. CompareTag("Board"))
         {
+           Afterimage = Instantiate(AfterimagePrefab, transform.position, AfterimagePrefab. transform. rotation);
            transform.position = new Vector3(0, 0, 0); 
         }
     }
