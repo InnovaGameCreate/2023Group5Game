@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestPlayerMove : MonoBehaviour
 {
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float xRange;
     [SerializeField] private float zRange;
+
     [SerializeField] private GameObject AfterimagePrefab;
     private GameObject Afterimage;
+    public float Round;
+    [SerializeField] private Text RoundText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +34,23 @@ public class TestPlayerMove : MonoBehaviour
     
        if(Input.GetKey(KeyCode.S) && this.transform.position.z > -zRange)//Sを押したら かつ　オブジェクトのz座標が-zRange以上の値なら
        transform.Translate(new Vector3(0, 0, -MoveSpeed) * Time.deltaTime);
+
+       
+    
+    
+    
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other. gameObject. CompareTag("Board"))
         {
-           Afterimage = Instantiate(AfterimagePrefab, transform.position, AfterimagePrefab. transform. rotation);
-           transform.position = new Vector3(0, 0, 0); 
+           Round++;
+           
+           if(Round < 3)
+           {
+            Afterimage = Instantiate(AfterimagePrefab, transform.position, AfterimagePrefab. transform. rotation);
+            transform.position = new Vector3(0, 0, 0);
+           }
         }
     }
 }
