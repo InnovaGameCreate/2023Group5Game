@@ -25,7 +25,7 @@ public class CameraWork : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PMCs.Round >= 3)
+        if(PMCs.Round > 3)
         {
             MainCamera.SetActive(false);
             SubCamera.SetActive(true);
