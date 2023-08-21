@@ -12,12 +12,12 @@ public class TestPlayerMove : MonoBehaviour
     [SerializeField] private GameObject AfterimagePrefab;
     private GameObject Afterimage;
     public float Round;
-    [SerializeField] private Text RoundText;
+    [SerializeField] private GameObject RoundText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine("Test1");
     }
 
     // Update is called once per frame
@@ -48,9 +48,19 @@ public class TestPlayerMove : MonoBehaviour
            
            if(Round < 3)
            {
+
             Afterimage = Instantiate(AfterimagePrefab, transform.position, AfterimagePrefab. transform. rotation);
             transform.position = new Vector3(0, 0, 0);
+            StartCoroutine("Test1");
            }
         }
     }
+    IEnumerator Test1()
+    {
+        RoundText.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        RoundText.SetActive(false);
+    }
+
+    
 }
