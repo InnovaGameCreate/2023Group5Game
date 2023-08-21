@@ -18,6 +18,7 @@ public class TestPlayerMove : MonoBehaviour
     void Start()
     {
         StartCoroutine("Test1");
+        Round = 1;
     }
 
     // Update is called once per frame
@@ -46,7 +47,7 @@ public class TestPlayerMove : MonoBehaviour
         {
            Round++;
            
-           if(Round < 3)
+           if(Round <= 3)
            {
 
             Afterimage = Instantiate(AfterimagePrefab, transform.position, AfterimagePrefab. transform. rotation);

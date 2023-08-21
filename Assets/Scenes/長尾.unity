@@ -240,7 +240,6 @@ MonoBehaviour:
   zRange: 10
   AfterimagePrefab: {fileID: 4719172790377816424, guid: 22478518074f37643a627906627e6b25, type: 3}
   Round: 0
-  Game: 0
   RoundText: {fileID: 547893448}
 --- !u!54 &462065125
 Rigidbody:
@@ -269,6 +268,7 @@ GameObject:
   - component: {fileID: 547893449}
   - component: {fileID: 547893451}
   - component: {fileID: 547893450}
+  - component: {fileID: 547893452}
   m_Layer: 5
   m_Name: RoundText
   m_TagString: Untagged
@@ -329,7 +329,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Round n Start!!!
 --- !u!222 &547893451
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -338,6 +338,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547893448}
   m_CullTransparentMesh: 1
+--- !u!114 &547893452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547893448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e228f54c1533fe4fbb1222ac36ef6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoundText: {fileID: 547893450}
 --- !u!1 &749753327
 GameObject:
   m_ObjectHideFlags: 0
