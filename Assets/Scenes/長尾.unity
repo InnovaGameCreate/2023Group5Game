@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 2
-  xRange: 10
-  zRange: 10
+  xRange: 0
+  yRange: 5
   AfterimagePrefab: {fileID: 4719172790377816424, guid: 22478518074f37643a627906627e6b25, type: 3}
   Round: 0
   waittime: 3
