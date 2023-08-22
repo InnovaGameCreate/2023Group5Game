@@ -7,7 +7,7 @@ public class TestPlayerMove : MonoBehaviour
 {
     [SerializeField] private float MoveSpeed;
     [SerializeField] private float xRange;
-    [SerializeField] private float zRange;
+    [SerializeField] private float yRange;
 
     [SerializeField] private GameObject AfterimagePrefab;
     private GameObject Afterimage;
@@ -31,11 +31,11 @@ public class TestPlayerMove : MonoBehaviour
        if(Input.GetKey(KeyCode.A) && this.transform.position.x > -xRange)//Aを押したら かつ　オブジェクトのx座標が-xRange以上の値なら
        transform.Translate(new Vector3(-MoveSpeed, 0, 0) * Time.deltaTime);
     
-       if(Input.GetKey(KeyCode.W) && this.transform.position.z < zRange)//Wを押したら かつ　オブジェクトのz座標がzRange以下の値なら
-       transform.Translate(new Vector3(0, 0, MoveSpeed) * Time.deltaTime);
+       if(Input.GetKey(KeyCode.W) && this.transform.position.y < yRange)//Wを押したら かつ　オブジェクトのz座標がzRange以下の値なら
+       transform.Translate(new Vector3(0, MoveSpeed, 0) * Time.deltaTime);
     
-       if(Input.GetKey(KeyCode.S) && this.transform.position.z > -zRange)//Sを押したら かつ　オブジェクトのz座標が-zRange以上の値なら
-       transform.Translate(new Vector3(0, 0, -MoveSpeed) * Time.deltaTime);
+       if(Input.GetKey(KeyCode.S) && this.transform.position.y > -yRange)//Sを押したら かつ　オブジェクトのz座標が-zRange以上の値なら
+       transform.Translate(new Vector3(0, -MoveSpeed, 0) * Time.deltaTime);
 
        
     
