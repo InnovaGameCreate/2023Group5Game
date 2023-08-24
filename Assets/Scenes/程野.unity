@@ -241,6 +241,27 @@ MonoBehaviour:
   Round: 0
   waittime: 0
   RoundText: {fileID: 0}
+--- !u!1 &116656750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2978528013652781402, guid: bcd72a1627efc31458cadfb281d0593c, type: 3}
+  m_PrefabInstance: {fileID: 8743695006999018925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &116656755
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116656750}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &243447395
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 243447397}
   - component: {fileID: 243447396}
+  - component: {fileID: 243447398}
   m_Layer: 0
   m_Name: CreateRandomManagerR
   m_TagString: Untagged
@@ -273,6 +295,8 @@ MonoBehaviour:
   createPrefab: {fileID: 2978528013652781402, guid: bcd72a1627efc31458cadfb281d0593c, type: 3}
   rangeA: {fileID: 393930643}
   rangeB: {fileID: 1071099538}
+  moveSpeed: 5
+  objectLifetime: 3
 --- !u!4 &243447397
 Transform:
   m_ObjectHideFlags: 0
@@ -288,6 +312,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &243447398
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243447395}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &393930642
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd5304eab756b54991ccef196ce35fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1
+  MoveSpeed: 5
 --- !u!1 &478793562
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +464,8 @@ MonoBehaviour:
   createPrefab: {fileID: 4623884181938834169, guid: 7b49c28b84b9b3d4b97b30f243136b79, type: 3}
   rangeA: {fileID: 1287314029}
   rangeB: {fileID: 1087421588}
+  moveSpeed: 5
+  objectLifetime: 10
 --- !u!1 &630011793
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804853204}
   - component: {fileID: 804853203}
+  - component: {fileID: 804853205}
   m_Layer: 0
   m_Name: CreateRandomManagerL
   m_TagString: Untagged
@@ -550,6 +593,8 @@ MonoBehaviour:
   createPrefab: {fileID: 3703694016538988937, guid: afaf07b0fe4559f458b9eab7398c00c0, type: 3}
   rangeA: {fileID: 1190159019}
   rangeB: {fileID: 1358998986}
+  moveSpeed: 5
+  objectLifetime: 3
 --- !u!4 &804853204
 Transform:
   m_ObjectHideFlags: 0
@@ -565,6 +610,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &804853205
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804853202}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1022788395
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +710,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1043058681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3703694016538988937, guid: afaf07b0fe4559f458b9eab7398c00c0, type: 3}
+  m_PrefabInstance: {fileID: 4509614614503945019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1043058686
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043058681}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1071099537
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd5304eab756b54991ccef196ce35fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1
+  MoveSpeed: 5
 --- !u!1 &1087421587
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1087421588}
+  - component: {fileID: 1087421589}
   m_Layer: 0
   m_Name: RangeB
   m_TagString: Untagged
@@ -725,6 +808,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1087421589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087421587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd5304eab756b54991ccef196ce35fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 5
 --- !u!1 &1190159018
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd5304eab756b54991ccef196ce35fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1
+  MoveSpeed: 5
 --- !u!1 &1287314028
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1287314029}
+  - component: {fileID: 1287314030}
   m_Layer: 0
   m_Name: RangeA
   m_TagString: Untagged
@@ -801,6 +898,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287314030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287314028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd5304eab756b54991ccef196ce35fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 5
 --- !u!1 &1358998985
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd5304eab756b54991ccef196ce35fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1
+  MoveSpeed: 5
 --- !u!1001 &4509614614503945019
 PrefabInstance:
   m_ObjectHideFlags: 0
