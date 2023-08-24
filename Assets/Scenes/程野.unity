@@ -465,7 +465,7 @@ MonoBehaviour:
   rangeA: {fileID: 1287314029}
   rangeB: {fileID: 1087421588}
   moveSpeed: 5
-  objectLifetime: 10
+  objectLifetime: 3
 --- !u!1 &630011793
 GameObject:
   m_ObjectHideFlags: 0
