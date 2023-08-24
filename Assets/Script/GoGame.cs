@@ -5,17 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GoGame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-            SceneManager.LoadScene("程野");
+        if (Input.GetKey(KeyCode.Return)) // エンターキーが押されたら
+            SceneManager.LoadScene("程野"); // シーンをロード
     }
 }
-
