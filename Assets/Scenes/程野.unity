@@ -292,7 +292,7 @@ MonoBehaviour:
   createPrefab: {fileID: 2978528013652781402, guid: bcd72a1627efc31458cadfb281d0593c, type: 3}
   rangeA: {fileID: 393930643}
   rangeB: {fileID: 1071099538}
-  moveSpeed: 5
+  moveSpeed: -5
   objectLifetime: 3
 --- !u!4 &243447397
 Transform:
@@ -964,6 +964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lfish
       objectReference: {fileID: 0}
+    - target: {fileID: 7928150025843707397, guid: afaf07b0fe4559f458b9eab7398c00c0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9113862327865239687, guid: afaf07b0fe4559f458b9eab7398c00c0, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1065,6 +1069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Airstone
       objectReference: {fileID: 0}
+    - target: {fileID: 4736070565328010267, guid: 7b49c28b84b9b3d4b97b30f243136b79, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b49c28b84b9b3d4b97b30f243136b79, type: 3}
 --- !u!1001 &8743695006999018925
@@ -1074,6 +1082,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 710076817495547479, guid: bcd72a1627efc31458cadfb281d0593c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2978528013652781402, guid: bcd72a1627efc31458cadfb281d0593c, type: 3}
       propertyPath: m_Name
       value: Rfish

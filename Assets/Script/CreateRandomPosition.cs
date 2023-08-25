@@ -52,6 +52,7 @@ public class CreateRandomPosition : MonoBehaviour
             // 経過時間リセット
             time = 0f;
         }
+
     }
 
     private void MoveObject(GameObject obj)
@@ -61,7 +62,7 @@ public class CreateRandomPosition : MonoBehaviour
         if (rb != null)
         {
             // Rigidbody がある場合、velocity を設定して移動
-            rb.velocity = Vector3.up * moveSpeed;
+            rb.velocity = Vector3.right * moveSpeed;
         }
         else
         {
