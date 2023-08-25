@@ -230,17 +230,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 64726391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 779e7b4ed513ef44db769eb02df10505, type: 3}
+  m_Script: {fileID: 11500000, guid: ae13dd631c3aaea48bbe329aced6ca3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 2
-  xRange: 2
-  yRange: 2
-  zSpeed: 0
-  AfterimagePrefab: {fileID: 0}
-  Round: 0
-  waittime: 0
-  RoundText: {fileID: 0}
+  MoveSpeed: 10
+  xMax: 100
+  xMin: -100
+  yMax: 100
+  yMin: -100
 --- !u!1 &116656750 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2978528013652781402, guid: bcd72a1627efc31458cadfb281d0593c, type: 3}
