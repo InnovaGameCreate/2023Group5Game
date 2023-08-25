@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float xSpeed;
-    [SerializeField] private float ySpeed;
-    [SerializeField] private float zSpeed;
+    [SerializeField] public float xSpeed;
+    [SerializeField] public float ySpeed;
+    [SerializeField] public float zSpeed;
     [SerializeField] private float targetY;
     private Rigidbody rb;
     private bool isGravityActive = false;
@@ -17,16 +17,12 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        if (isStuck)
-        {
-            rb.velocity = Vector3.zero;
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        //PlayerÇ™ê›íËÇÃçÇÇ≥Ç©ÇÁï˙ï®â^ìÆÇÇ∑ÇÈ
         if (!isGravityActive && transform.position.y> targetY)
         {
             isGravityActive = true;
@@ -35,10 +31,12 @@ public class PlayerMove : MonoBehaviour
 
         if (isStuck)
         {
+            //BoardÇ…ìñÇΩÇÈÇ∆é~Ç‹ÇÈ
             rb.velocity = Vector3.zero;
         }
         else
         {
+            //PlayerÇé©ìÆÇ≈êiÇ‹ÇπÇÈ
             transform.Translate(new Vector3(xSpeed, ySpeed, zSpeed) * Time.deltaTime);
 
         }
