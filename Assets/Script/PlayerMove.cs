@@ -14,35 +14,42 @@ public class PlayerMove : MonoBehaviour
     private bool isStuck = false;
     private int boardCollisionCount = 0;
 
-    // Start is called before the first frame update
+    private const int MaxBoardCollisions = 3;
+    private const string EndSceneName = "End";
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Playerが設定の高さから放物運動をする
+        HandleGravityActivation();
+        HandleMovement();
+    }
+
+    void HandleGravityActivation()
+    {
         if (!isGravityActive && transform.position.y > targetY)
         {
             isGravityActive = true;
             rb.useGravity = true;
         }
+    }
 
+    void HandleMovement()
+    {
         if (isStuck)
         {
-            // Boardに当たると止まる
             rb.velocity = Vector3.zero;
         }
         else
         {
-            // Playerを自動で進ませる
             transform.Translate(new Vector3(xSpeed, ySpeed, zSpeed) * Time.deltaTime);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (!isStuck && collision.gameObject.tag == "Board")
         {
@@ -50,17 +57,26 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.constraints = RigidbodyConstraints.FreezeAll;
 
-            // Boardにぶつかった回数をカウント
             boardCollisionCount++;
 
-            // 3回ぶつかったら現在のシーンを再読み込み
-            if (boardCollisionCount >= 3)
+            if (boardCollisionCount >= MaxBoardCollisions)
             {
-                // 現在のSceneを取得
-                Scene loadScene = SceneManager.GetActiveScene();
-                // 現在のシーンを再読み込みする
-                SceneManager.LoadScene(loadScene.buildIndex);
+                LoadEndScene();
+            }
+            else
+            {
+                ReloadCurrentScene();
             }
         }
+    }
+
+    void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void LoadEndScene()
+    {
+        SceneManager.LoadScene(EndSceneName);
     }
 }
