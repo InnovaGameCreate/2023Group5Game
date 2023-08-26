@@ -8,6 +8,7 @@ public class CameraWork : MonoBehaviour
     private GameObject SubCamera;
     private GameObject PM;
     private TestPlayerMove PMCs;
+    [SerializeField] private float waittime;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +28,13 @@ public class CameraWork : MonoBehaviour
     {
         if(PMCs.Round > 3)
         {
-            MainCamera.SetActive(false);
-            SubCamera.SetActive(true);
+            StartCoroutine("Test1");
         }
     }
-    
+    IEnumerator Test1()
+    {
+        yield return new WaitForSeconds(waittime);
+        MainCamera.SetActive(false);
+        SubCamera.SetActive(true);
+    }
 }

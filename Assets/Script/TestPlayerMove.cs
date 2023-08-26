@@ -18,6 +18,8 @@ public class TestPlayerMove : MonoBehaviour
     public float Round;
     [SerializeField] private float waittime;
     [SerializeField] private GameObject RoundText;
+    [SerializeField] private GameObject scText;
+    [SerializeField] private GameObject fscText;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,8 @@ public class TestPlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         StartCoroutine("Test1");
         Round = 1;
+        scText.SetActive(false);
+        fscText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -68,6 +72,8 @@ public class TestPlayerMove : MonoBehaviour
            {
             StartCoroutine("Test2");
            }
+           else {StartCoroutine("Test3");}
+        
         }
     }
     IEnumerator Test1()
@@ -79,9 +85,18 @@ public class TestPlayerMove : MonoBehaviour
     }
     IEnumerator Test2()
     {
+        scText.SetActive(true);
         yield return new WaitForSeconds(waittime);
+        scText.SetActive(false);
         Afterimage = Instantiate(AfterimagePrefab, transform.position, AfterimagePrefab. transform. rotation);
         transform.position = new Vector3(0, 0, 0);
         StartCoroutine("Test1");
-    }   
+    }  
+    IEnumerator Test3()
+    {
+        scText.SetActive(true);
+        yield return new WaitForSeconds(waittime);
+        scText.SetActive(false);
+        fscText.SetActive(true);
+    }
 }
