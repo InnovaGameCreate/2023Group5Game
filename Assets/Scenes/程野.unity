@@ -455,14 +455,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 525079143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c84cf791bb84b20499b125b5f556c399, type: 3}
+  m_Script: {fileID: 11500000, guid: bfd54d446efad37439ec9ab4e8ceb0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   createPrefab: {fileID: 4623884181938834169, guid: 7b49c28b84b9b3d4b97b30f243136b79, type: 3}
   rangeA: {fileID: 1287314029}
   rangeB: {fileID: 1087421588}
   moveSpeed: 5
-  objectLifetime: 3
+  objectLifetime: 10
 --- !u!1 &630011793
 GameObject:
   m_ObjectHideFlags: 0
