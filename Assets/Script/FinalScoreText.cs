@@ -19,6 +19,6 @@ public class FinalScoreText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fscText.text = SCCs.score.ToString() +"Points!!!";
+        fscText.text = SCCs.finalScore.ToString() +"Points!!!";
     }
 }

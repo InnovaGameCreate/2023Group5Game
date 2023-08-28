@@ -67,7 +67,6 @@ public class TestPlayerMove : MonoBehaviour
             rb.constraints = RigidbodyConstraints.FreezeAll;
            Round++;
            Debug.Log("Stuck!");
-           
            if(Round <= 3)
            {
             StartCoroutine("Test2");
