@@ -22,7 +22,12 @@ public class CreateRandomPosition : MonoBehaviour
     [Tooltip("オブジェクトが消えるまでの時間")]
     private float objectLifetime = 10.0f;
 
+    [SerializeField]
+    [Tooltip("オブジェクトの生成を止めるX座標")]
+    private float stopXPosition = 10.0f;
+
     private float time; // 経過時間
+    private bool allowSpawn = true; // オブジェクトの生成許可フラグ
 
     // Update is called once per frame
     void Update()
@@ -31,7 +36,7 @@ public class CreateRandomPosition : MonoBehaviour
         time = time + Time.deltaTime;
 
         // 約1秒置きにランダムに生成されるようにする。
-        if (time > 1.0f)
+        if (time > 1.0f && allowSpawn)
         {
             // rangeAとrangeBのx座標の範囲内でランダムな数値を作成
             float x = Random.Range(rangeA.position.x, rangeB.position.x);
@@ -49,10 +54,12 @@ public class CreateRandomPosition : MonoBehaviour
             // 一定時間後にオブジェクトを削除する
             Destroy(createdObject, objectLifetime);
 
+            // X座標が指定位置に到達したらオブジェクトの生成を止める
+            CheckStopSpawn(x);
+
             // 経過時間リセット
             time = 0f;
         }
-
     }
 
     private void MoveObject(GameObject obj)
@@ -70,5 +77,12 @@ public class CreateRandomPosition : MonoBehaviour
             obj.transform.position += Vector3.up * moveSpeed * Time.deltaTime;
         }
     }
-}
 
+    private void CheckStopSpawn(float x)
+    {
+        if (x >= stopXPosition)
+        {
+            allowSpawn = false;
+        }
+    }
+}
