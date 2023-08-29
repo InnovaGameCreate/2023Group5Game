@@ -24,8 +24,8 @@ public class ScoreText : MonoBehaviour
     void Update()
     {
         
-        if(PMCs.Round == 1){scText.text = SCCs.firstScore.ToString() +"Points!";}
-        if(PMCs.Round == 2){scText.text = SCCs.scondScore.ToString() +"Points!";}
-        if(PMCs.Round == 3){scText.text = SCCs.thirdScore.ToString() +"Points!";}
+        if(PMCs.Round == 2){scText.text = SCCs.firstScore.ToString() +"Points!";}
+        if(PMCs.Round == 3){scText.text = SCCs.scondScore.ToString() +"Points!";}
+        if(PMCs.Round == 4){scText.text = SCCs.thirdScore.ToString() +"Points!";}
     }
 }
