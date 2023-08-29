@@ -27,6 +27,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
     }
 
     // Update is called once per frame
@@ -35,6 +36,7 @@ public class PlayerMove : MonoBehaviour
         if (!isStuck)
         {
             rb.velocity = new Vector3(xSpeed, ySpeed, zSpeed);
+            rb.useGravity = true;
         }
 
         float playerX = transform.position.x;
