@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 54737053}
   m_Layer: 0
   m_Name: Triple
-  m_TagString: Untagged
+  m_TagString: Triple
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3705,7 +3705,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-27146
+  m_Name: pb_Mesh32256
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4425,7 +4425,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-20472
+  m_Name: pb_Mesh31802
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5253,6 +5253,9 @@ MonoBehaviour:
   RoundText: {fileID: 547893448}
   scText: {fileID: 1406018190}
   fscText: {fileID: 1112340221}
+  Fcoefficient: 0
+  Scoefficient: 0
+  Tcoefficient: 0
 --- !u!54 &462065125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11828,7 +11831,7 @@ GameObject:
   - component: {fileID: 1842394541}
   m_Layer: 0
   m_Name: Double
-  m_TagString: Untagged
+  m_TagString: Double
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

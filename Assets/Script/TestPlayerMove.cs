@@ -20,6 +20,9 @@ public class TestPlayerMove : MonoBehaviour
     [SerializeField] private GameObject RoundText;
     [SerializeField] private GameObject scText;
     [SerializeField] private GameObject fscText;
+    public float Fcoefficient;
+    public float Scoefficient;
+    public float Tcoefficient;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,9 @@ public class TestPlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         StartCoroutine("Test1");
         Round = 1;
+        Fcoefficient = 1;
+        Scoefficient = 1;
+        Tcoefficient = 1;
         scText.SetActive(false);
         fscText.SetActive(false);
     }
@@ -72,7 +78,18 @@ public class TestPlayerMove : MonoBehaviour
             StartCoroutine("Test2");
            }
            else {StartCoroutine("Test3");}
-        
+        }
+        if(other. gameObject. CompareTag("Double"))
+        {
+            if(Round == 1){Fcoefficient = 2;}
+            if(Round == 2){Scoefficient = 2;}
+            if(Round == 3){Tcoefficient = 2;}
+        }
+        if(other. gameObject. CompareTag("Triple"))
+        {
+            if(Round == 1){Fcoefficient = 3;}
+            if(Round == 2){Scoefficient = 3;}
+            if(Round == 3){Tcoefficient = 3;}
         }
     }
     IEnumerator Test1()

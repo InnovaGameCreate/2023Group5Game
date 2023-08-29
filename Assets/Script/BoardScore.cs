@@ -29,9 +29,9 @@ public class BoardScore : MonoBehaviour
     {
         if(other. gameObject. CompareTag("Player"))
         {
-           if(PMCs.Round == 2){SCCs.firstScore = boardscore;}
-        if(PMCs.Round == 3){SCCs.scondScore = boardscore;}
-        if(PMCs.Round == 4){SCCs.thirdScore = boardscore;}
+        if(PMCs.Round == 2){SCCs.firstScore = boardscore * PMCs.Fcoefficient;}
+        if(PMCs.Round == 3){SCCs.scondScore = boardscore * PMCs.Scoefficient;}
+        if(PMCs.Round == 4){SCCs.thirdScore = boardscore * PMCs.Tcoefficient;}
         }
     }
 }
