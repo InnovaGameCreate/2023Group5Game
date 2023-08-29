@@ -12,44 +12,39 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody rb;
     private bool isGravityActive = false;
     private bool isStuck = false;
+
     private int boardCollisionCount = 0;
-
     private const int MaxBoardCollisions = 3;
-    private const string EndSceneName = "End";
 
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-        HandleGravityActivation();
-        HandleMovement();
-    }
-
-    void HandleGravityActivation()
-    {
+        // Playerが設定の高さから放物運動をする
         if (!isGravityActive && transform.position.y > targetY)
         {
             isGravityActive = true;
             rb.useGravity = true;
         }
-    }
 
-    void HandleMovement()
-    {
         if (isStuck)
         {
+            // Boardに当たると止まる
             rb.velocity = Vector3.zero;
         }
         else
         {
+            // Playerを自動で進ませる
             transform.Translate(new Vector3(xSpeed, ySpeed, zSpeed) * Time.deltaTime);
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (!isStuck && collision.gameObject.tag == "Board")
         {
@@ -61,7 +56,12 @@ public class PlayerMove : MonoBehaviour
 
             if (boardCollisionCount >= MaxBoardCollisions)
             {
-                LoadEndScene();
+                // SceneChangeスクリプトを持つゲームオブジェクトのSceneChangeコンポーネントを取得して、LoadEndSceneメソッドを呼び出す
+                SceneChange sceneChangeScript = FindObjectOfType<SceneChange>();
+                if (sceneChangeScript != null)
+                {
+                    sceneChangeScript.LoadEndScene();
+                }
             }
             else
             {
@@ -73,10 +73,5 @@ public class PlayerMove : MonoBehaviour
     void ReloadCurrentScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    void LoadEndScene()
-    {
-        SceneManager.LoadScene(EndSceneName);
     }
 }
