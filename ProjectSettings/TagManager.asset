@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Board
   - Airstone
+  - Fish
   layers:
   - Default
   - TransparentFX
