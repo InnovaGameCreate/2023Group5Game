@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float xSpeed;
-    [SerializeField] private float ySpeed;
-    [SerializeField] private float zSpeed;
+    [SerializeField] public float xSpeed;
+    [SerializeField] public float ySpeed;
+    [SerializeField] public float zSpeed;
     [SerializeField] private float xFishForce;
     [SerializeField] private float yFishForce;
     [SerializeField] private float zFishForce;
@@ -27,18 +27,11 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.useGravity = false; // Disable gravity at the start
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isGravityActive && (transform.position.y > targetY || transform.position.z > targetZ))
-        {
-            isGravityActive = true;
-            rb.useGravity = true;
-        }
-
         if (!isStuck)
         {
             rb.velocity = new Vector3(xSpeed, ySpeed, zSpeed);
@@ -58,6 +51,16 @@ public class PlayerMove : MonoBehaviour
             Vector3 forwardAcceleration = transform.forward * forwardaccelerationAmount;
             Vector3 totalAcceleration = upAcceleration + forwardAcceleration;
             rb.AddForce(totalAcceleration, ForceMode.Acceleration);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (!isGravityActive && transform.position.y > targetY || !isGravityActive && transform.position.z > targetZ)
+        {
+            Debug.Log("êÖëÖÇ©ÇÁèoÇ‹ÇµÇΩ");
+            isGravityActive = true;
+            rb.useGravity = true;
         }
     }
 
@@ -90,6 +93,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (other.CompareTag("Fish"))
         {
+            Debug.Log("ãõÇ…Ç‘Ç¬Ç©ÇËÇ‹ÇµÇΩ");
             Vector3 force = new Vector3(-xFishForce, -yFishForce, -zFishForce);
             rb.AddForce(force, ForceMode.Impulse);
         }
