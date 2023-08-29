@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] public float ySpeed;
     [SerializeField] public float zSpeed;
     [SerializeField] private float targetY;
+    [SerializeField] private float targetZ;
     private Rigidbody rb;
     private bool isGravityActive = false;
     private bool isStuck = false;
@@ -26,7 +27,7 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         // Player‚ªÝ’è‚Ì‚‚³‚©‚ç•ú•¨‰^“®‚ð‚·‚é
-        if (!isGravityActive && transform.position.y > targetY)
+        if (!isGravityActive && transform.position.y > targetY || !isGravityActive && transform.position.z > targetZ)
         {
             isGravityActive = true;
             rb.useGravity = true;
