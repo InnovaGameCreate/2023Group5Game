@@ -336,9 +336,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSpeed: 0
   ySpeed: 0
+<<<<<<< Updated upstream
   zSpeed: 0
   xFishForce: 10
   yFishForce: 10
+=======
+  zSpeed: 5
+  xFishForce: 0
+  yFishForce: 0
+>>>>>>> Stashed changes
   zFishForce: 10
   targetY: 10
   targetZ: 15
