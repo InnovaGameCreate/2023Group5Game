@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // SceneManagerの名前空間をインポート
 using UnityEngine.UI;
 
 public class TestPlayerMove : MonoBehaviour
@@ -114,5 +115,9 @@ public class TestPlayerMove : MonoBehaviour
         yield return new WaitForSeconds(waittime);
         scText.SetActive(false);
         fscText.SetActive(true);
+
+        // 以下を追加して、一定の遅延後に「End」シーンに切り替える
+        yield return new WaitForSeconds(waittime); // 必要に応じて遅延を調整
+        SceneManager.LoadScene("End"); // 「End」シーンを読み込む
     }
 }
