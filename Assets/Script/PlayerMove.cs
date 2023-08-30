@@ -15,13 +15,16 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float targetZ;
     [SerializeField] private float upaccelerationAmount;
     [SerializeField] private float forwardaccelerationAmount;
-
+    [SerializeField]
+    private float MoveSpeed;
+    [SerializeField] private float xMax;
+    [SerializeField] private float xMin;
+    [SerializeField] private float yMax;
+    [SerializeField] private float yMin;
     private Rigidbody rb;
     private bool isGravityActive = false;
     private bool isStuck = false;
     public Transform airstoneTransform;
-    private int boardCollisionCount = 0;
-    private const int MaxBoardCollisions = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,18 @@ public class PlayerMove : MonoBehaviour
         if (!isStuck)
         {
             rb.velocity = new Vector3(xSpeed, ySpeed, zSpeed);
+
+            if (Input.GetKey(KeyCode.A) && this.transform.position.x > xMin)//Aを押したら移動、かつオブジェクトのx座標がxMin以上の値なら移動可能
+                transform.Translate(new Vector3(-MoveSpeed, 0, 0) * Time.deltaTime); //移動するためのプログラム
+
+            if (Input.GetKey(KeyCode.D) && this.transform.position.x < xMax)//Dを押したら移動、かつオブジェクトのx座標がxMax以下の値なら移動可能
+                transform.Translate(new Vector3(MoveSpeed, 0, 0) * Time.deltaTime); //移動するためのプログラム
+
+            if (Input.GetKey(KeyCode.W) && this.transform.position.y < yMax)//Wを押したら移動、かつオブジェクトのz座標がzMax以下の値なら移動可能
+                transform.Translate(new Vector3(0, MoveSpeed, 0) * Time.deltaTime); //移動するためのプログラム
+
+            if (Input.GetKey(KeyCode.S) && this.transform.position.y > yMin)//Sを押したら移動、かつオブジェクトのz座標がxMin以上の値なら移動可能
+                transform.Translate(new Vector3(0, -MoveSpeed, 0) * Time.deltaTime); //移動するためのプログラム
         }
 
         float playerX = transform.position.x;
@@ -66,26 +81,11 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isStuck && collision.gameObject.CompareTag("Board"))
+        if (!isStuck && collision.gameObject.CompareTag("Wall"))
         {
             isStuck = true;
             rb.velocity = Vector3.zero;
             rb.constraints = RigidbodyConstraints.FreezeAll;
-
-            boardCollisionCount++;
-
-            if (boardCollisionCount >= MaxBoardCollisions)
-            {
-                SceneChange sceneChangeScript = FindObjectOfType<SceneChange>();
-                if (sceneChangeScript != null)
-                {
-                    sceneChangeScript.LoadEndScene();
-                }
-            }
-            else
-            {
-                ReloadCurrentScene();
-            }
         }
     }
 
@@ -97,10 +97,5 @@ public class PlayerMove : MonoBehaviour
             Vector3 force = new Vector3(-xFishForce, -yFishForce, -zFishForce);
             rb.AddForce(force, ForceMode.Impulse);
         }
-    }
-
-    void ReloadCurrentScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
