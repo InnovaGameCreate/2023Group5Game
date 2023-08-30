@@ -9,6 +9,6 @@ public class GoGame : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.Return)) // エンターキーが押されたら
-            SceneManager.LoadScene("古谷"); // シーンをロード
+            SceneManager.LoadScene("長尾"); // シーンをロード
     }
 }
