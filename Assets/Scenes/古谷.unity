@@ -293,14 +293,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377530641}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 10, y: 0, z: 10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450226715
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 450226719}
   - component: {fileID: 450226718}
   - component: {fileID: 450226716}
+  - component: {fileID: 450226723}
   - component: {fileID: 450226724}
   m_Layer: 0
   m_Name: Player
@@ -336,25 +337,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSpeed: 0
   ySpeed: 0
-<<<<<<< Updated upstream
-  zSpeed: 0
+  zSpeed: 5
   xFishForce: 10
   yFishForce: 10
-=======
-  zSpeed: 5
-  xFishForce: 0
-  yFishForce: 0
->>>>>>> Stashed changes
   zFishForce: 10
   targetY: 10
   targetZ: 15
-  upaccelerationAmount: 500
-  forwardaccelerationAmount: 90
-  MoveSpeed: 2
-  xMax: 50
-  xMin: -50
-  yMax: 50
-  yMin: -50
+  upaccelerationAmount: 90
+  forwardaccelerationAmount: 20
   airstoneTransform: {fileID: 1910282964}
 --- !u!65 &450226718
 BoxCollider:
@@ -434,6 +424,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &450226723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450226715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9aa713fcf791046a5cdf7a2fc76def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 3
+  xMax: 10
+  xMin: -10
+  yMax: 10
+  yMin: -10
 --- !u!54 &450226724
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -445,7 +452,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -463,8 +470,8 @@ GameObject:
   - component: {fileID: 1323421759}
   - component: {fileID: 1323421758}
   m_Layer: 0
-  m_Name: Wall
-  m_TagString: Wall
+  m_Name: Board
+  m_TagString: Board
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -541,7 +548,7 @@ Transform:
   m_GameObject: {fileID: 1323421757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 25}
-  m_LocalScale: {x: 50, y: 50, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -556,7 +563,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 744093538616981588, guid: 7b49c28b84b9b3d4b97b30f243136b79, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 744093538616981588, guid: 7b49c28b84b9b3d4b97b30f243136b79, type: 3}
       propertyPath: m_LocalPosition.x
@@ -629,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9113862327865239687, guid: afaf07b0fe4559f458b9eab7398c00c0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9113862327865239687, guid: afaf07b0fe4559f458b9eab7398c00c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -690,7 +697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3985219127690568219, guid: bcd72a1627efc31458cadfb281d0593c, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3985219127690568219, guid: bcd72a1627efc31458cadfb281d0593c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -743,3 +750,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 744093538616981588, guid: 7b49c28b84b9b3d4b97b30f243136b79, type: 3}
   m_PrefabInstance: {fileID: 1543775633}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2041585373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2041585375}
+  - component: {fileID: 2041585374}
+  m_Layer: 0
+  m_Name: Goend
+  m_TagString: Board
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2041585374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041585373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4ac3e8b1aefc1438eec3dca96e8711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2041585375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041585373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04493332, y: -0.5213375, z: 0.32013798}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

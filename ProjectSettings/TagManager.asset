@@ -9,7 +9,6 @@ TagManager:
   - Fish
   - Double
   - Triple
-  - Wall
   layers:
   - Default
   - TransparentFX
