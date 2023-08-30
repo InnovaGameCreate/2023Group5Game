@@ -7,41 +7,26 @@ public class Yfishmove : MonoBehaviour
     [SerializeField] private int MoveSpeed;
 
     [SerializeField]
-    private float stopZPosition = 10.0f;
-    private int roundedZ;
+    private int stopZPosition = 10; // 整数値に変更
+    private bool shouldMove = true;
 
-    private float time;
-
-    private void Awake()
+    private void Update()
     {
-        roundedZ = Mathf.RoundToInt(stopZPosition);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // 許容誤差を設定
-        float tolerance = 0.1f;
-
-        // Z座標が指定位置の範囲内にあるかどうかをチェック
-        if (transform.position.z <= roundedZ - tolerance && transform.position.z <= roundedZ + tolerance)
+        if (shouldMove)
         {
-            Debug.Log("到達");
-            // 到達したら何か特定の処理を行う
-        }
-        else
-        {
+            // オブジェクトの移動
             transform.Translate(new Vector3(0, 0, MoveSpeed) * Time.deltaTime);
+
+            // 指定のZ座標に到達したら移動を停止
+            if (transform.position.z >= stopZPosition)
+            {
+                shouldMove = false;
+
+                // 正確な整数座標にオブジェクトを移動
+                transform.position = new Vector3(transform.position.x, transform.position.y, stopZPosition);
+
+                Debug.Log("到達");
+            }
         }
     }
-
-
-
-
 }
