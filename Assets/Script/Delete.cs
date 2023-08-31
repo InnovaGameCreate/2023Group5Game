@@ -1,40 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Delete : MonoBehaviour
 {
-    [SerializeField]
-    private float targetY = 0.0f; // You need to define targetY
-    [SerializeField]
-    private float targetZ = 0.0f; // You need to define targetZ
-    private bool isGravityActive = false; // You need to define isGravityActive
-
-    private bool shouldDisable = false;
-    private float elapsedTime = 0.0f;
+    public float targetZ = 10.0f; // 到達すべきZ座標
 
     private void Update()
     {
-        if ((!isGravityActive && transform.position.y > targetY) || (!isGravityActive && transform.position.z > targetZ))
+        // 現在のオブジェクトのZ座標が目標Z座標に達した場合
+        if (transform.position.z >= targetZ)
         {
-            Debug.Log("水槽から出ました");
-            shouldDisable = true;
-        }
-
-        if (shouldDisable)
-        {
-            elapsedTime += Time.deltaTime;
-
-        }
-    }
-
-    private void DisableAllScripts()
-    {
-        MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
-        foreach (MonoBehaviour script in scripts)
-        {
-            script.enabled = false;
-            Debug.Log("到達");
+            // オブジェクトを非アクティブにする（消える）
+            gameObject.SetActive(false);
         }
     }
 }
