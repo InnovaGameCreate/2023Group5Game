@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float AutoMoveSpeed;
+    [SerializeField] private float InitialVelocity;
+    [SerializeField] private float InitiolAcceleration;
     [SerializeField] private float FishForce;
     [SerializeField] private float targetY;
     [SerializeField] private float targetZ;
     [SerializeField] private float upaccelerationAmount;
-    [SerializeField] private float forwardaccelerationAmount;
+    [SerializeField] private float AirstoneAcceleration;
     [SerializeField]
     private float WaterMoveSpeed;
     private float AirMoveSpeed;
@@ -22,12 +23,16 @@ public class PlayerMove : MonoBehaviour
     private bool isGravityActive = false;
     private bool isStuck = false;
     public Transform airstoneTransform;
-    int Round; 
+    int Round;
+    float AutoMoveSpeed;
+    float Acceleration;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         Round = 1;
+        AutoMoveSpeed = InitialVelocity;
+        Acceleration = InitiolAcceleration;
     }
 
     // Update is called once per frame
@@ -35,6 +40,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (!isStuck)
         {
+            AutoMoveSpeed += Acceleration * Time.deltaTime;
             rb.velocity = new Vector3(0, 0, AutoMoveSpeed);
 
             if (!isGravityActive)
@@ -83,10 +89,9 @@ public class PlayerMove : MonoBehaviour
             //エアストーンの上を通過すると加速する
             Debug.Log("エアストーンの上を通過しました");
 
+            Acceleration += AirstoneAcceleration;
             Vector3 upAcceleration = transform.up * upaccelerationAmount;
-            Vector3 forwardAcceleration = transform.forward * forwardaccelerationAmount;
-            Vector3 totalAcceleration = upAcceleration + forwardAcceleration;
-            rb.AddForce(totalAcceleration, ForceMode.Acceleration);
+            rb.AddForce(upAcceleration, ForceMode.Acceleration);
         }
     }
 
@@ -119,8 +124,11 @@ public class PlayerMove : MonoBehaviour
         if (other.CompareTag("Fish"))
         {
             Debug.Log("魚にぶつかりました");
-            Vector3 force = -transform.forward * FishForce;
-            rb.AddForce(force, ForceMode.Acceleration);
+
+            if (AutoMoveSpeed > 0)
+            {
+                Acceleration -= FishDeceleration;
+            }
         }
     }
 }
