@@ -6,15 +6,14 @@ using UnityEngine.SceneManagement;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float InitialVelocity;
-    [SerializeField] private float InitiolAcceleration;
-    [SerializeField] private float FishForce;
+    [SerializeField] private float InitialAcceleration;
+    [SerializeField] private float FishDeceleration;
     [SerializeField] private float targetY;
     [SerializeField] private float targetZ;
     [SerializeField] private float upaccelerationAmount;
     [SerializeField] private float AirstoneAcceleration;
-    [SerializeField]
-    private float WaterMoveSpeed;
-    private float AirMoveSpeed;
+    [SerializeField] private float WaterMoveSpeed;
+    [SerializeField] private float AirMoveSpeed;
     [SerializeField] private float xMax;
     [SerializeField] private float xMin;
     [SerializeField] private float yMax;
@@ -32,7 +31,7 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Round = 1;
         AutoMoveSpeed = InitialVelocity;
-        Acceleration = InitiolAcceleration;
+        Acceleration = InitialAcceleration;
     }
 
     // Update is called once per frame
@@ -40,11 +39,18 @@ public class PlayerMove : MonoBehaviour
     {
         if (!isStuck)
         {
-            AutoMoveSpeed += Acceleration * Time.deltaTime;
             rb.velocity = new Vector3(0, 0, AutoMoveSpeed);
+
+            if(AutoMoveSpeed < 0)
+            {
+                AutoMoveSpeed = InitialVelocity;
+                Acceleration = InitialAcceleration;
+            }
 
             if (!isGravityActive)
             {
+                AutoMoveSpeed += Acceleration * Time.deltaTime;
+
                 //水中での移動
                 if (Input.GetKey(KeyCode.A) && this.transform.position.x > xMin)
                     transform.Translate(new Vector3(-WaterMoveSpeed, 0, 0) * Time.deltaTime);
@@ -71,7 +77,7 @@ public class PlayerMove : MonoBehaviour
         else
         {
             Round++;
-            if(Round <= 3 && Input.GetKey(KeyCode.Return))
+            if(Input.GetKey(KeyCode.Return))
             {
                 Debug.Log("シーンがロードされます");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
