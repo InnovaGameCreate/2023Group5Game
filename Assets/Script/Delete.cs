@@ -5,16 +5,19 @@ using UnityEngine;
 public class Delete : MonoBehaviour
 {
     [SerializeField]
-    private float stopZPosition = 10.0f;
+    private float targetY = 0.0f; // You need to define targetY
+    [SerializeField]
+    private float targetZ = 0.0f; // You need to define targetZ
+    private bool isGravityActive = false; // You need to define isGravityActive
 
     private bool shouldDisable = false;
     private float elapsedTime = 0.0f;
 
     private void Update()
     {
-        // Z座標が指定位置に到達したらスクリプトを無効化
-        if (!shouldDisable && transform.position.z >= stopZPosition)
+        if ((!isGravityActive && transform.position.y > targetY) || (!isGravityActive && transform.position.z > targetZ))
         {
+            Debug.Log("水槽から出ました");
             shouldDisable = true;
         }
 
@@ -22,11 +25,6 @@ public class Delete : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            if (elapsedTime >= 5.0f)
-            {
-                DisableAllScripts();
-                Debug.Log("到達１");
-            }
         }
     }
 
