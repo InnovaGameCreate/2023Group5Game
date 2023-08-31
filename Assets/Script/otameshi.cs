@@ -33,6 +33,8 @@ public class otameshi : MonoBehaviour
             SpawnRandomFish();
             spawnTimer = 0.0f; // タイマーリセット
         }
+
+
     }
 
     private void SpawnRandomFish()
