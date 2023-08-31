@@ -334,17 +334,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004bd4b1871abff4595c4d671ea6a2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSpeed: 0
-  ySpeed: 0
-  zSpeed: 3
-  xFishForce: 0
-  yFishForce: 0
-  zFishForce: 20
+  AutoMoveSpeed: 5
+  FishForce: 400
   targetY: 10
   targetZ: 15
   upaccelerationAmount: 900
   forwardaccelerationAmount: 500
-  MoveSpeed: 3
+  WaterMoveSpeed: 5
   xMax: 10
   xMin: -10
   yMax: 10
