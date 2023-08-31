@@ -448,12 +448,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004bd4b1871abff4595c4d671ea6a2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoMoveSpeed: 3
-  FishForce: 400
+  InitialVelocity: 1
+  InitiolAcceleration: 1
+  FishDeceleration: 1
   targetY: 5000
   targetZ: 5000
   upaccelerationAmount: 0
-  forwardaccelerationAmount: 0
+  AirstoneAcceleration: 0
   WaterMoveSpeed: 0
   xMax: 0
   xMin: 0
@@ -550,12 +551,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004bd4b1871abff4595c4d671ea6a2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoMoveSpeed: 3
-  FishForce: 50
+  InitialVelocity: 1
+  InitiolAcceleration: 1
+  FishDeceleration: 1
   targetY: 5000
   targetZ: 5000
   upaccelerationAmount: 0
-  forwardaccelerationAmount: 0
+  AirstoneAcceleration: 0
   WaterMoveSpeed: 0
   xMax: 0
   xMin: 0
